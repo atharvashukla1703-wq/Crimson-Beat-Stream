@@ -1,10 +1,29 @@
+import { useRef, useState } from "react";
+
 export default function App() {
   const songs = [
-    "BLACKOUT",
-    "BLACKOUT STREET",
-    "DESI CANNON",
-    "OVERDRIVE",
+    {
+      title: "BLACKOUT",
+      artist: "Canon X",
+      file: "/songs/blackout.mp3",
+    },
+    {
+      title: "BLACKOUT STREET",
+      artist: "Canon X",
+      file: "/songs/blackoutstreet.mp3",
+    },
   ];
+
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const [currentSong, setCurrentSong] = useState("");
+
+  const playSong = (file: string, title: string) => {
+    if (audioRef.current) {
+      audioRef.current.src = file;
+      audioRef.current.play();
+      setCurrentSong(title);
+    }
+  };
 
   return (
     <div
@@ -20,45 +39,48 @@ export default function App() {
         Crimson Beat Stream
       </h1>
 
-      <p style={{ color: "#888" }}>
-        Canon X Official Music Platform
+      <p style={{ color: "#777" }}>
+        Now Playing: {currentSong || "Nothing"}
       </p>
 
       <div
         style={{
-          marginTop: "40px",
           display: "grid",
           gap: "20px",
+          marginTop: "40px",
         }}
       >
         {songs.map((song) => (
           <div
-            key={song}
+            key={song.title}
             style={{
               background: "#111",
               padding: "20px",
-              borderRadius: "16px",
+              borderRadius: "18px",
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
             }}
           >
             <div>
-              <h2>{song}</h2>
+              <h2>{song.title}</h2>
               <p style={{ color: "#777" }}>
-                by Canon X
+                {song.artist}
               </p>
             </div>
 
             <button
+              onClick={() =>
+                playSong(song.file, song.title)
+              }
               style={{
                 background: "white",
                 color: "black",
                 border: "none",
                 padding: "10px 20px",
-                borderRadius: "10px",
-                cursor: "pointer",
+                borderRadius: "12px",
                 fontWeight: "bold",
+                cursor: "pointer",
               }}
             >
               PLAY
@@ -66,6 +88,8 @@ export default function App() {
           </div>
         ))}
       </div>
+
+      <audio ref={audioRef} controls style={{ marginTop: "40px", width: "100%" }} />
     </div>
   );
 }
