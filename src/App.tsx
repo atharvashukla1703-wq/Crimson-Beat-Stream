@@ -3,7 +3,7 @@ export default function App() {
     "BLACKOUT",
     "BLACKOUT STREET",
     "DESI CANNON",
-    "TENSION",
+    "OVERDRIVE",
   ];
 
   return (
