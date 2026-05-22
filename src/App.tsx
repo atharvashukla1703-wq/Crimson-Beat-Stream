@@ -4,10 +4,15 @@ import "./index.css";
 export default function App() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  const playSong = (song: string) => {
+  const playSong = async (song: string) => {
     if (audioRef.current) {
       audioRef.current.src = song;
-      audioRef.current.play();
+
+      try {
+        await audioRef.current.play();
+      } catch (error) {
+        console.log("Audio error:", error);
+      }
     }
   };
 
@@ -15,22 +20,27 @@ export default function App() {
     {
       title: "BLACKOUT",
       artist: "Canon X",
-      file: "/songs/Blackout.mp3",
+      file: "/blackout.mp3",
     },
     {
       title: "BLACKOUT STREET",
       artist: "Canon X",
-      file: "/songs/blackoutstreet.mp3.mp3",
+      file: "/blackoutstreet.mp3.mp3",
     },
     {
       title: "DESI CANNON RELOADED",
       artist: "Canon X",
-      file: "/songs/Desi Cannon Reloaded.mp3",
+      file: "/desicannonreloaded.mp3",
     },
     {
       title: "CANON X OVERDRIVE",
       artist: "Canon X",
-      file: "/songs/Canon X Overdrive.mp3",
+      file: "/canonxoverdrive.mp3",
+    },
+    {
+      title: "CANON X OVERDRIVE REVERB",
+      artist: "Canon X",
+      file: "/canonxoverdrivereverb.mp3",
     },
   ];
 
@@ -80,7 +90,14 @@ export default function App() {
         </div>
       ))}
 
-      <audio ref={audioRef} controls style={{ width: "100%" }} />
+      <audio
+        ref={audioRef}
+        controls
+        style={{
+          width: "100%",
+          marginTop: "40px",
+        }}
+      />
     </div>
   );
 }
