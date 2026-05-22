@@ -31,6 +31,12 @@ export default function App() {
   },
 
   {
+    title: "DESI CANNON",
+    artist: "Canon X",
+    file: "/desicannon.mp3",
+  },
+
+  {
     title: "DESI CANNON RELOADED",
     artist: "Canon X",
     file: "/desicannonreloaded.mp3",
@@ -39,7 +45,7 @@ export default function App() {
   {
     title: "CANON X OVERDRIVE",
     artist: "Canon X",
-    file: "/canonxoverdrive.mp3",
+    file: "/cannonxoverdrive.mp3",
   },
 
   {
