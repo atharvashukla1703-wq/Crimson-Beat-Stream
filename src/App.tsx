@@ -14,36 +14,36 @@ export default function App() {
   };
 
   const songs = [
-    {
-      title: "BLACKOUT",
-      artist: "Canon X",
-      file: "/blackout.mp3",
-    },
+  {
+    title: "BLACKOUT",
+    artist: "Canon X",
+    file: "/blackout.mp3",
+  },
 
-    {
-      title: "BLACKOUT STREET",
-      artist: "Canon X",
-      file: "/blackoutstreet.mp3.mp3",
-    },
+  {
+    title: "BLACKOUT STREET",
+    artist: "Canon X",
+    file: "/blackoutstreet.mp3.mp3",
+  },
 
-    {
-      title: "DESI CANNON RELOADED",
-      artist: "Canon X",
-      file: "/desicannonreloaded.mp3",
-    },
+  {
+    title: "DESI CANNON RELOADED",
+    artist: "Canon X",
+    file: "/desicannonreloaded.mp3",
+  },
 
-    {
-      title: "CANON X OVERDRIVE",
-      artist: "Canon X",
-      file: "/canonxoverdrive.mp3",
-    },
+  {
+    title: "CANON X OVERDRIVE",
+    artist: "Canon X",
+    file: "/canonxoverdrive.mp3",
+  },
 
-    {
-      title: "CANNON X OVERDRIVE REVERB",
-      artist: "Canon X",
-      file: "/cannonxoverdrivereverb.mp3",
-    },
-  ];
+  {
+    title: "CANNON X OVERDRIVE REVERB",
+    artist: "Canon X",
+    file: "/cannonxoverdrivereverb.mp3",
+  },
+];
 
   return (
     <div
