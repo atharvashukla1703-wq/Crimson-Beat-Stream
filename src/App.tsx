@@ -11,7 +11,7 @@ export default function App() {
       try {
         await audioRef.current.play();
       } catch (error) {
-        console.log("Audio error:", error);
+        console.log(error);
       }
     }
   };
