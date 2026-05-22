@@ -17,27 +17,31 @@ export default function App() {
     {
       title: "BLACKOUT",
       artist: "Canon X",
-      file: "/songs/blackout.mp3",
+      file: "/blackout.mp3",
     },
+
     {
       title: "BLACKOUT STREET",
       artist: "Canon X",
-      file: "/songs/blackoutstreet.mp3.mp3",
+      file: "/blackoutstreet.mp3.mp3",
     },
+
     {
       title: "DESI CANNON RELOADED",
       artist: "Canon X",
-      file: "/songs/desicannonreloaded.mp3",
+      file: "/desicannonreloaded.mp3",
     },
+
     {
       title: "CANON X OVERDRIVE",
       artist: "Canon X",
-      file: "/songs/canonxoverdrive.mp3",
+      file: "/canonxoverdrive.mp3",
     },
+
     {
-      title: "CANON X OVERDRIVE REVERB",
+      title: "CANNON X OVERDRIVE REVERB",
       artist: "Canon X",
-      file: "/songs/cannonxoverdrivereverb.mp3",
+      file: "/cannonxoverdrivereverb.mp3",
     },
   ];
 
