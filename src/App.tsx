@@ -5,13 +5,17 @@ export default function App() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [currentSong, setCurrentSong] = useState("");
 
-  const playSong = (song: string, title: string) => {
-    if (audioRef.current) {
+  const playSong = async (song: string, title: string) => {
+  if (audioRef.current) {
+    try {
       audioRef.current.src = song;
-      audioRef.current.play();
+      await audioRef.current.play();
       setCurrentSong(title);
+    } catch (error) {
+      console.error("Audio playback failed:", error);
     }
-  };
+  }
+};
 
   const songs = [
   {
@@ -23,7 +27,7 @@ export default function App() {
   {
     title: "BLACKOUT STREET",
     artist: "Canon X",
-    file: "/blackoutstreet.mp3.mp3",
+    file: "/blackoutstreet.mp3",
   },
 
   {
