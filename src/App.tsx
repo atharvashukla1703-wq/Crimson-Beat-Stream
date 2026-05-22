@@ -1,95 +1,86 @@
-import { useRef, useState } from "react";
+import { useRef } from "react";
+import "./index.css";
 
 export default function App() {
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  const playSong = (song: string) => {
+    if (audioRef.current) {
+      audioRef.current.src = song;
+      audioRef.current.play();
+    }
+  };
+
   const songs = [
     {
       title: "BLACKOUT",
       artist: "Canon X",
-      file: "/songs/blackout.mp3",
+      file: "/songs/Blackout.mp3",
     },
     {
       title: "BLACKOUT STREET",
       artist: "Canon X",
-      file: "/songs/blackoutstreet.mp3",
+      file: "/songs/blackoutstreet.mp3.mp3",
+    },
+    {
+      title: "DESI CANNON RELOADED",
+      artist: "Canon X",
+      file: "/songs/Desi Cannon Reloaded.mp3",
+    },
+    {
+      title: "CANON X OVERDRIVE",
+      artist: "Canon X",
+      file: "/songs/Canon X Overdrive.mp3",
     },
   ];
-
-  const audioRef = useRef<HTMLAudioElement | null>(null);
-  const [currentSong, setCurrentSong] = useState("");
-
-  const playSong = (file: string, title: string) => {
-    if (audioRef.current) {
-      audioRef.current.src = file;
-      audioRef.current.play();
-      setCurrentSong(title);
-    }
-  };
 
   return (
     <div
       style={{
-        background: "#050505",
-        color: "white",
+        backgroundColor: "black",
         minHeight: "100vh",
+        color: "white",
         padding: "30px",
-        fontFamily: "sans-serif",
+        fontFamily: "Arial",
       }}
     >
-      <h1 style={{ fontSize: "42px" }}>
-        Crimson Beat Stream
-      </h1>
+      <h1 style={{ fontSize: "60px" }}>Crimson Beat Stream</h1>
 
-      <p style={{ color: "#777" }}>
-        Now Playing: {currentSong || "Nothing"}
+      <p style={{ color: "gray", marginBottom: "40px" }}>
+        Canon X Official Music Platform
       </p>
 
-      <div
-        style={{
-          display: "grid",
-          gap: "20px",
-          marginTop: "40px",
-        }}
-      >
-        {songs.map((song) => (
-          <div
-            key={song.title}
+      {songs.map((song, index) => (
+        <div
+          key={index}
+          style={{
+            backgroundColor: "#0f0f0f",
+            padding: "25px",
+            borderRadius: "20px",
+            marginBottom: "25px",
+          }}
+        >
+          <h2>{song.title}</h2>
+
+          <p style={{ color: "gray" }}>by {song.artist}</p>
+
+          <button
+            onClick={() => playSong(song.file)}
             style={{
-              background: "#111",
-              padding: "20px",
-              borderRadius: "18px",
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
+              marginTop: "15px",
+              padding: "12px 25px",
+              borderRadius: "10px",
+              border: "none",
+              fontWeight: "bold",
+              cursor: "pointer",
             }}
           >
-            <div>
-              <h2>{song.title}</h2>
-              <p style={{ color: "#777" }}>
-                {song.artist}
-              </p>
-            </div>
+            PLAY
+          </button>
+        </div>
+      ))}
 
-            <button
-              onClick={() =>
-                playSong(song.file, song.title)
-              }
-              style={{
-                background: "white",
-                color: "black",
-                border: "none",
-                padding: "10px 20px",
-                borderRadius: "12px",
-                fontWeight: "bold",
-                cursor: "pointer",
-              }}
-            >
-              PLAY
-            </button>
-          </div>
-        ))}
-      </div>
-
-      <audio ref={audioRef} controls style={{ marginTop: "40px", width: "100%" }} />
+      <audio ref={audioRef} controls style={{ width: "100%" }} />
     </div>
   );
 }
